@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+    flex-direction: column;
+}
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.neon {
+    position: fixed;
+    top: 15%;
+    font-family: 'poppins';
+    font-size: 6em;
+    color: #FFF;
+    text-shadow: 0 0 20px blue;
+}
+.neon:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* color: #FF005B; */
+    color: blue;
+    filter: blur(15px);
+}
+.neon:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: lightskyblue;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
+}
+.container .cigarette {
+    transform-style: preserve-3d;
+    animation: animate 15s linear infinite;
+    margin: 0 35px 0 0;
+}
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateX(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateX(360deg);
+    }
+}
+.container .cigarette span {
+    position: absolute;
+    color: #FFF;
+    font-size: 1.35em;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.76em;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%,-50%) rotateX(calc(var(--i)
+    * 36deg)) translateZ(25px);
+    background: rgba(0, 0, 0, 0.25);
+    transform-style: preserve-3d;
+}
+.container .cigarette span i {
+    font-style: normal;
+    color: #EC9535;
+}
+.container .cigarette span i:first-child:after {
+    content: 'L';
+    color: #CCC;
+    text-transform: lowercase;
+}
+.container .cigarette span i:last-child {
+    color: #F00;
+    filter: blur(2px);
+    text-shadow: -4px 0 2px #000,
+    8px 0 20px #F00,
+    8px 0 24px #F00,
+    8px 0 0 #222,
+    12px 0 #555,
+    16px 0 #666,
+    20px 0 #888,
+    24px 0 #999;
+}
+@media screen and (max-width: 768px) {
+    .container .cigarette span {
+        transform: translate(-50%,-50%) rotateX(calc(var(--i) * 
+        36deg)) translateZ(24px);
+    }
+}
+@media screen and (max-width: 425px) {
+    .neon {
+        font-size: 4.5em;
+    }
+    .container .cigarette span {
+        font-size: 1.3em;
+        transform: translate(-50%,-50%) rotateX(calc(var(--i) * 
+        36deg)) translateZ(22px);
+    }
+}
+@media screen and (max-width: 375px) {
+    .neon {
+        font-size: 4em;
+    }
+    .container .cigarette {
+        margin: 0 25px 0 0;
+    }
+    .container .cigarette span {
+        font-size: 1.28em;
+        transform: translate(-50%,-50%) rotateX(calc(var(--i) * 
+        36deg)) translateZ(22px);
+    }
+}
+@media screen and (max-width: 320px) {
+    .neon {
+        font-size: 3.4em;
+    }
+    .container .cigarette span {
+        font-size: 1.1em;
+        transform: translate(-50%,-50%) rotateX(calc(var(--i) * 
+        36deg)) translateZ(20px);
+    }
+}
